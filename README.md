@@ -1,4 +1,4 @@
-# Cenario1
+<img width="878" height="502" alt="image" src="https://github.com/user-attachments/assets/7887f4b3-bba9-4fcc-bf1d-c8464857eed3" /># Cenario1
 
 # Cenário 1: Encontrando a Estação Central
 Este projeto implementa uma solução em Python para o "Cenário 1", que consiste em determinar a estação de metrô mais central em uma rede não-direcionada e ponderada.
@@ -14,4 +14,5 @@ A implementação em Python é uma tradução fiel da lógica do pseudocódigo c
 # Lógica Principal
 A essência do algoritmo é um conjunto de três laços aninhados que verificam sistematicamente se um caminho através de um vértice intermediário k é mais curto do que o caminho conhecido até o momento.
 # Pseudocódigo Clássico:	
+<img width="878" height="502" alt="image" src="https://github.com/user-attachments/assets/61484298-b3be-44f9-a4a8-f09301a6880a" />
 
