@@ -49,7 +49,7 @@ FIM ALGORITMO
                       self.matriz_custos[i][j] = custo_via_k
 ```
 ## Comparativo Geral : 
-Aspecto |	Pseudocódigo Genérico (Floyd-Warshall) | Implementação em Python (Método calcular_todas_rotas_floyd_warshall)
+| Aspecto |	Pseudocódigo Genérico (Floyd-Warshall) | Implementação em Python (Método calcular_todas_rotas_floyd_warshall) | 
 
 Estrutura de Dados	Matriz D com as distâncias.	Atributo self.matriz_custos da classe RedeDeMetro.
 Inicialização	D = matriz de adjacências (com ∞ e 0 na diagonal).	Realizada no método __init__, que cria self.matriz_custos com INFINITO e zera a diagonal.
