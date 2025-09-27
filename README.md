@@ -13,14 +13,34 @@ O algoritmo de Floyd-Warshall é ideal para este cenário porque ele calcula a d
 
 ## Comparativo: Pseudocódigo vs. Implementação em Python
 A implementação em Python é uma tradução fiel da lógica do pseudocódigo clássico, adaptada para uma estrutura orientada a objetos.
-```para k de 1 até n:
-  para i de 1 até n:
-    para j de 1 até n:
-      se d[i][k] + d[k][j] < d[i][j] então:
-        d[i][j] ← d[i][k] + d[k][j]
+```
+    ALGORITMO FloydWarshall(Grafo G)
+  // Entrada: Grafo G com n vértices, representado por uma matriz de adjacências
+  // Saída: Matriz D com as distâncias mais curtas entre todos os pares de vértices
+
+  // 1. Inicializar a matriz de distâncias
+  D = matriz de adjacências do Grafo G (com ∞ para arestas não existentes e 0 para a distância de um vértice a ele mesmo)
+
+  // 2. Iterar através de todos os vértices como intermediários
+  PARA k DE 1 ATÉ n
+    // 3. Iterar através de todos os vértices de origem
+    PARA i DE 1 ATÉ n
+      // 4. Iterar através de todos os vértices de destino
+      PARA j DE 1 ATÉ n
+        // 5. Atualizar a distância se um caminho mais curto for encontrado através de k
+        SE (D[i][k] + D[k][j] < D[i][j]) ENTÃO
+          D[i][j] = D[i][k] + D[k][j]
+        FIM SE
+      FIM PARA
+    FIM PARA
+  FIM PARA
+
+  RETORNAR D
+FIM ALGORITMO
 ```
 ## A implementação em Python : 
-``` def calcular_todas_rotas_floyd_warshall(self):
+```
+  def calcular_todas_rotas_floyd_warshall(self):
       for k in range(self.num_estacoes):
           for i in range(self.num_estacoes):
               for j in range(self.num_estacoes):
@@ -29,4 +49,12 @@ A implementação em Python é uma tradução fiel da lógica do pseudocódigo c
                       self.matriz_custos[i][j] = custo_via_k
 ```
 ## Comparativo Geral : 
-<img width="657" height="638" alt="image" src="https://github.com/user-attachments/assets/df5b8b2a-7165-4d44-91ac-833430175ffd" />
+Aspecto |	Pseudocódigo Genérico (Floyd-Warshall) | Implementação em Python (Método calcular_todas_rotas_floyd_warshall)
+
+Estrutura de Dados	Matriz D com as distâncias.	Atributo self.matriz_custos da classe RedeDeMetro.
+Inicialização	D = matriz de adjacências (com ∞ e 0 na diagonal).	Realizada no método __init__, que cria self.matriz_custos com INFINITO e zera a diagonal.
+Loop Principal	PARA k DE 1 ATÉ n	for k in range(self.num_estacoes):
+Loops Aninhados	PARA i DE 1 ATÉ n PARA j DE 1 ATÉ n	for i in range(self.num_estacoes): for j in range(self.num_estacoes):
+Condição de Atualização	SE (D[i][k] + D[k][j] < D[i][j]) ENTÃO	if custo_via_k < self.matriz_custos[i][j]: (onde custo_via_k é a soma)
+Lógica de Atualização	D[i][j] = D[i][k] + D[k][j]	self.matriz_custos[i][j] = custo_via_k
+Saída	RETORNAR D	O método modifica o atributo self.matriz_custos diretamente (in-place), não há um return.
