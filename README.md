@@ -48,13 +48,3 @@ FIM ALGORITMO
                   if custo_via_k < self.matriz_custos[i][j]:
                       self.matriz_custos[i][j] = custo_via_k
 ```
-## Comparativo Geral : 
-| Aspecto |	Pseudocódigo Genérico (Floyd-Warshall) | Implementação em Python (Método calcular_todas_rotas_floyd_warshall) | 
-
-Estrutura de Dados	Matriz D com as distâncias.	Atributo self.matriz_custos da classe RedeDeMetro.
-Inicialização	D = matriz de adjacências (com ∞ e 0 na diagonal).	Realizada no método __init__, que cria self.matriz_custos com INFINITO e zera a diagonal.
-Loop Principal	PARA k DE 1 ATÉ n	for k in range(self.num_estacoes):
-Loops Aninhados	PARA i DE 1 ATÉ n PARA j DE 1 ATÉ n	for i in range(self.num_estacoes): for j in range(self.num_estacoes):
-Condição de Atualização	SE (D[i][k] + D[k][j] < D[i][j]) ENTÃO	if custo_via_k < self.matriz_custos[i][j]: (onde custo_via_k é a soma)
-Lógica de Atualização	D[i][j] = D[i][k] + D[k][j]	self.matriz_custos[i][j] = custo_via_k
-Saída	RETORNAR D	O método modifica o atributo self.matriz_custos diretamente (in-place), não há um return.
